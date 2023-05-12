@@ -1,0 +1,26 @@
+FROM registry.redhat.io/openshift4/ose-jenkins-agent-maven:v4.5.0
+# #WORKDIR /app
+USER root
+#RUN yum -y install curl bash
+# #Install Chrome Driver:
+RUN wget https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_linux64.zip
+RUN unzip chromedriver_linux64.zip
+RUN mv chromedriver /usr/bin/chromedriver
+# #RUN chromedriver –version
+#
+#COPY . .
+#
+# #Install Chrome Binary:
+RUN curl https://intoli.com/install-google-chrome.sh | bash
+#RUN chmod a+x install-google-chrome.sh
+#RUN ls -ltr
+#RUN ./install-google-chrome.sh
+RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
+# #RUN google-chrome –version
+#
+#COPY . .
+
+#RUN ls -ltr
+#RUN mvn -version
+#RUN mvn -f ./pom.xml clean compile
+#RUN mvn test
